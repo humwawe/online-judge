@@ -2,3 +2,9 @@
 .idea
 target
 *.iml
+*.json
+*.template
+*.txt
+*.properties
+src/main/java/fast/io
+output
