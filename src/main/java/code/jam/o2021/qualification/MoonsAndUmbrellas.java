@@ -32,6 +32,7 @@ public class MoonsAndUmbrellas {
                     dp[i][0] = Math.min(dp[i][0], dp[i - 1][1] + y);
                 } else {
                     dp[i][0] = 0;
+                    dp[i][1] = 0;
                 }
             } else if (c == 'J') {
                 if (lastC == 'C') {
@@ -42,6 +43,7 @@ public class MoonsAndUmbrellas {
                     dp[i][1] = Math.min(dp[i][1], dp[i - 1][0] + x);
                     dp[i][1] = Math.min(dp[i][1], dp[i - 1][1]);
                 } else {
+                    dp[i][0] = 0;
                     dp[i][1] = 0;
                 }
             } else {
@@ -49,7 +51,7 @@ public class MoonsAndUmbrellas {
                     dp[i][0] = dp[i - 1][0];
                     dp[i][1] = dp[i - 1][0] + x;
                 } else if (lastC == 'J') {
-                    dp[i][0] = dp[i - 1][0] + y;
+                    dp[i][0] = dp[i - 1][1] + y;
                     dp[i][1] = dp[i - 1][1];
                 } else if (lastC == '?') {
                     dp[i][0] = Math.min(dp[i][0], dp[i - 1][0]);
