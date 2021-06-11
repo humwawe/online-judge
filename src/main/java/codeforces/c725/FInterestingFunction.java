@@ -11,23 +11,11 @@ public class FInterestingFunction {
     }
 
     private int helper(int v) {
-        int tmp = 0;
         int res = 0;
-        int tmp2 = 1;
-        for (int i = 0; i < 10; i++) {
-            tmp = tmp * 10 + 9;
-            tmp2 *= 10;
-            int a = v / tmp2;
-            int b = v % tmp2;
-            res += a;
-            if (a == 0) {
-                break;
-            }
-            if (b == tmp) {
-                res += 1;
-            }
-
+        while (v > 0) {
+            res += v;
+            v /= 10;
         }
-        return v + res;
+        return res;
     }
 }
