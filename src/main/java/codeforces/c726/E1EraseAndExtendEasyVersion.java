@@ -4,49 +4,37 @@ import fast.io.InputReader;
 import fast.io.OutputWriter;
 
 public class E1EraseAndExtendEasyVersion {
-    public void solve(int testNumber, InputReader in, OutputWriter out) {
-        int n = in.nextInt();
-        int k = in.nextInt();
-        String s = in.nextString();
-        char c = s.charAt(0);
-        boolean f = false;
-        int i;
-        for (i = 1; i < n; i++) {
-            if (s.charAt(i) == c) {
-                f = true;
-                break;
-            } else if (s.charAt(i) > c) {
-                break;
-            }
-        }
-        int l = i;
-        String tmp1 = s.substring(0, l);
-        StringBuilder sb1 = new StringBuilder();
-        while (sb1.length() < k) {
-            sb1.append(tmp1);
-        }
-        if (f) {
-            int j = 0;
-            for (; l < n; l++) {
-                if (s.charAt(l) <= c) {
-                    j++;
-                } else {
-                    break;
-                }
-            }
-        }
+    int n, k;
 
-        String tmp2 = s.substring(0, l);
-        StringBuilder sb2 = new StringBuilder();
-        while (sb2.length() < k) {
-            sb2.append(tmp2);
+    public void solve(int testNumber, InputReader in, OutputWriter out) {
+        n = in.nextInt();
+        k = in.nextInt();
+        String s = in.nextString();
+        StringBuilder stringBuilder = new StringBuilder();
+        String res = "-1";
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) > s.charAt(0)) {
+                break;
+            }
+            stringBuilder.append(s.charAt(i));
+            res = getMin(res, stringBuilder);
         }
-        String s1 = sb1.substring(0, k);
-        String s2 = sb2.substring(0, k);
-        if (s1.compareTo(s2) > 0) {
-            out.println(s2);
+        out.println(res);
+    }
+
+    private String getMin(String res, StringBuilder stringBuilder) {
+        StringBuilder ret = new StringBuilder();
+        while (ret.length() < k) {
+            ret.append(stringBuilder);
+        }
+        String substring = ret.substring(0, k);
+        if (res.equals("-1")) {
+            return substring;
+        }
+        if (res.compareTo(substring) > 0) {
+            return substring;
         } else {
-            out.println(s1);
+            return res;
         }
     }
 }
