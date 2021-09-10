@@ -3,23 +3,17 @@ package codeforces.e113;
 import fast.io.InputReader;
 import fast.io.OutputWriter;
 
+import java.util.*;
+
 public class DInconvenientPairs {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
         int m = in.nextInt();
         int k = in.nextInt();
-//        todo
         int[] row = new int[n];
         boolean[] vis1 = new boolean[(int) (1e6 + 5)];
-//        row[n + 1] = (int) 1e6;
-//        vis1[0] = true;
-//        vis1[(int) 1e6] = true;
-
         int[] col = new int[m];
         boolean[] vis2 = new boolean[(int) (1e6 + 5)];
-//        col[m + 1] = (int) 1e6;
-//        vis2[0] = true;
-//        vis2[(int) 1e6] = true;
         for (int i = 0; i < n; i++) {
             row[i] = in.nextInt();
             vis1[row[i]] = true;
@@ -29,9 +23,8 @@ public class DInconvenientPairs {
             vis2[col[i]] = true;
         }
 
-        int[] cnt1 = new int[n + 2];
-        int[] cnt2 = new int[m + 2];
-        long res = 0;
+        Map<Integer, List<Integer>> map1 = new HashMap<>();
+        Map<Integer, List<Integer>> map2 = new HashMap<>();
         for (int i = 0; i < k; i++) {
             int x = in.nextInt();
             int y = in.nextInt();
@@ -40,14 +33,50 @@ public class DInconvenientPairs {
             }
             if (!vis1[x]) {
                 int tmp = lowerBound(row, x);
-                res += cnt1[tmp];
-                cnt1[tmp]++;
+                if (!map1.containsKey(tmp)) {
+                    map1.put(tmp, new ArrayList<>());
+                }
+                map1.get(tmp).add(y);
             } else {
                 int tmp = lowerBound(col, y);
-                res += cnt2[tmp];
-                cnt2[tmp]++;
+                if (!map2.containsKey(tmp)) {
+                    map2.put(tmp, new ArrayList<>());
+                }
+                map2.get(tmp).add(x);
             }
+
         }
+        long res = 0;
+        for (List<Integer> value : map1.values()) {
+            Collections.sort(value);
+            res += (long) value.size() * (value.size() - 1) / 2;
+            long cnt = 1;
+            for (int i = 1; i < value.size(); i++) {
+                if (value.get(i).equals(value.get(i - 1))) {
+                    cnt++;
+                } else {
+                    res -= cnt * (cnt - 1) / 2;
+                    cnt = 1;
+                }
+            }
+            res -= cnt * (cnt - 1) / 2;
+        }
+
+        for (List<Integer> value : map2.values()) {
+            Collections.sort(value);
+            res += (long) value.size() * (value.size() - 1) / 2;
+            long cnt = 1;
+            for (int i = 1; i < value.size(); i++) {
+                if (value.get(i).equals(value.get(i - 1))) {
+                    cnt++;
+                } else {
+                    res -= cnt * (cnt - 1) / 2;
+                    cnt = 1;
+                }
+            }
+            res -= cnt * (cnt - 1) / 2;
+        }
+
         out.println(res);
     }
 
