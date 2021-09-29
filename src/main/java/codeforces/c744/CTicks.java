@@ -19,7 +19,7 @@ public class CTicks {
             for (int j = 0; j < m; j++) {
                 int h = 0;
                 if (mat[i][j] == '*') {
-                    while (i - h >= 0 && j - h >= 0 && j + h < m && mat[i - h][j - h] == mat[i - h][j + h]) {
+                    while (i - h >= 0 && j - h >= 0 && j + h < m && mat[i - h][j - h] == mat[i - h][j + h] && mat[i - h][j - h] == '*') {
                         h++;
                     }
                 }
