@@ -7,6 +7,7 @@ public class TaskB {
     int[] a;
     int n, w;
 
+    // 可以记录前缀和，考虑每个点的位置是否满足
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         n = in.nextInt();
         w = in.nextInt();
