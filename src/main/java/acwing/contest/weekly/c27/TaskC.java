@@ -3,6 +3,7 @@ package acwing.contest.weekly.c27;
 import fast.io.InputReader;
 import fast.io.OutputWriter;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,17 +21,20 @@ public class TaskC {
             long num = in.nextLong();
             a[i] = helper(num);
         }
-        int[][] f = new int[k + 1][30 * 200];
+        int[][] f = new int[k + 1][26 * 200];
+        for (int i = 0; i < k + 1; i++) {
+            Arrays.fill(f[i], -inf);
+        }
         f[0][0] = 0;
         for (int i = 0; i < n; ++i) {
             for (int j = k; j > 0; --j) {
-                for (int k = 26 * n; k >= a[i].c5; --k) {
+                for (int k = 25 * n; k >= a[i].c5; --k) {
                     f[j][k] = Math.max(f[j][k], f[j - 1][k - a[i].c5] + a[i].c2);
                 }
             }
         }
         int res = 0;
-        for (int i = 1; i <= 26 * n; ++i) {
+        for (int i = 1; i < 26 * n; ++i) {
             res = Math.max(res, Math.min(i, f[k][i]));
         }
         out.println(res);
