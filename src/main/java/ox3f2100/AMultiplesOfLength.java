@@ -14,6 +14,7 @@ public class AMultiplesOfLength {
             out.println(0);
             out.println("1 1");
             out.println(-a[0]);
+            return;
         }
         out.println("1 1");
         out.println(-a[0]);
