@@ -7,7 +7,10 @@ public class AAncientCivilization {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
         int l = in.nextInt();
-        int[] a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         int res = 0;
         for (int i = 0; i < l; i++) {
             int cnt = 0;
