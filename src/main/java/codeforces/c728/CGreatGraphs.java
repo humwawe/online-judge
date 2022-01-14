@@ -6,7 +6,10 @@ import fast.io.OutputWriter;
 public class CGreatGraphs {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
-        long[] a = in.nextLongArray(n);
+        long[] a = new long[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextLong();
+        }
         longRadixSort(a);
         long sum = 0;
         long res = 0;

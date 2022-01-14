@@ -12,7 +12,10 @@ public class TaskB {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         n = in.nextInt();
         k = in.nextInt();
-        int[] a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         Arrays.sort(a);
         if (n == 1) {
             out.println(0);

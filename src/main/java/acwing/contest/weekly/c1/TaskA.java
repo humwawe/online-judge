@@ -10,9 +10,16 @@ public class TaskA {
     // 可以直接取两个数组的最大值
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
-        int[] a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         int m = in.nextInt();
-        int[] b = in.nextIntArray(m);
+        int[] b = new int[m];
+        for (int i = 0; i < m; i++) {
+            b[i] = in.nextInt();
+        }
+
         Set<Integer> set1 = new HashSet<>();
         Set<Integer> set2 = new HashSet<>();
         for (int i : a) {

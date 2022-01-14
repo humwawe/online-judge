@@ -9,7 +9,10 @@ public class CBalancedStoneHeaps {
 
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         n = in.nextInt();
-        h = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         int l = 1;
         int r = (int) 1e9;
         while (l < r) {

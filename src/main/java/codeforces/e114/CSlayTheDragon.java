@@ -12,7 +12,10 @@ public class CSlayTheDragon {
 
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         n = in.nextInt();
-        a = in.nextLongArray(n);
+        a = new long[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextLong();
+        }
         sum = 0;
         sort(a);
         int q = in.nextInt();

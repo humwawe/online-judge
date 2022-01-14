@@ -9,7 +9,10 @@ import java.util.Map;
 public class TaskB {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
-        int[] a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         long[] sum = new long[n + 1];
         Map<Long, Integer> map = new HashMap<>();
         for (int i = 0; i < n; i++) {

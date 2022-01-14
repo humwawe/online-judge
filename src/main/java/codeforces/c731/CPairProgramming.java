@@ -10,25 +10,31 @@ public class CPairProgramming {
         k = in.nextInt();
         n = in.nextInt();
         m = in.nextInt();
-        int i = 0, j = 0;
-        int[] a = in.nextIntArray(n);
-        int[] b = in.nextIntArray(m);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
+        int[] b = new int[m];
+        for (int i = 0; i < m; i++) {
+            b[i] = in.nextInt();
+        }
         int[] res = new int[n + m];
+        int i = 0, j = 0;
         int idx = 0;
         while (i < n && j < m) {
-            if (a[i] == 0) {
+            if (b[i] == 0) {
                 k++;
-                res[idx++] = a[i];
+                res[idx++] = b[i];
                 i++;
             } else if (b[j] == 0) {
                 k++;
                 res[idx++] = b[j];
                 j++;
-            } else if (a[i] > k && b[j] > k) {
+            } else if (b[i] > k && b[j] > k) {
                 out.println(-1);
                 return;
-            } else if (a[i] <= k) {
-                res[idx++] = a[i];
+            } else if (b[i] <= k) {
+                res[idx++] = b[i];
                 i++;
             } else if (b[j] <= k) {
                 res[idx++] = b[j];
@@ -36,15 +42,15 @@ public class CPairProgramming {
             }
         }
         while (i < n) {
-            if (a[i] == 0) {
-                res[idx++] = a[i];
+            if (b[i] == 0) {
+                res[idx++] = b[i];
                 k++;
                 i++;
-            } else if (a[i] <= k) {
-                res[idx++] = a[i];
+            } else if (b[i] <= k) {
+                res[idx++] = b[i];
                 i++;
 
-            } else if (a[i] > k) {
+            } else if (b[i] > k) {
                 out.println(-1);
                 return;
             }

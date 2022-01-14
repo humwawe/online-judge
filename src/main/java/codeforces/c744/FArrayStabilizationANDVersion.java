@@ -11,7 +11,10 @@ public class FArrayStabilizationANDVersion {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
         int d = in.nextInt();
-        int[] a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         boolean[] vis = new boolean[n];
         List<Integer>[] lists = new List[n];
         int idx = 0;

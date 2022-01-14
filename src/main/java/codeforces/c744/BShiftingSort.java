@@ -10,7 +10,10 @@ import java.util.List;
 public class BShiftingSort {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
-        int[] a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         int[] b = a.clone();
         Arrays.sort(b);
         List<String> res = new ArrayList<>();

@@ -16,7 +16,10 @@ public class CRoadOptimization {
             a[i] = in.nextInt();
         }
         a[n] = l;
-        int[] b = in.nextIntArray(n);
+        int[] b = new int[n];
+        for (int i = 0; i < n; i++) {
+            b[i] = in.nextInt();
+        }
         int[][] dp = new int[n + 1][k + 1];
         int inf = 0x3f3f3f3f;
         for (int i = 0; i <= n; i++) {

@@ -30,7 +30,10 @@ public class TaskC {
             add(b, a);
         }
         int k = in.nextInt();
-        p = in.nextIntArray(k);
+        int[] p = new int[k];
+        for (int i = 0; i < k; i++) {
+            p[i] = in.nextInt();
+        }
         s = p[0];
         t = p[k - 1];
         bfs();

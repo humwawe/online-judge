@@ -11,7 +11,10 @@ public class TaskB {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         n = in.nextInt();
         w = in.nextInt();
-        a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         int l = 0;
         int r = w;
         while (l < r) {

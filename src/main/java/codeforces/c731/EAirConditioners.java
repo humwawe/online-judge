@@ -12,8 +12,14 @@ public class EAirConditioners {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         n = in.nextInt();
         k = in.nextInt();
-        int[] a = in.nextIntArray(k);
-        int[] t = in.nextIntArray(k);
+        int[] a = new int[n];
+        for (int i = 0; i < k; i++) {
+            a[i] = in.nextInt();
+        }
+        int[] t = new int[n];
+        for (int i = 0; i < k; i++) {
+            t[i] = in.nextInt();
+        }
         PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(x -> x[0]));
         for (int i = 0; i < k; i++) {
             priorityQueue.add(new int[]{t[i], a[i] - 1});

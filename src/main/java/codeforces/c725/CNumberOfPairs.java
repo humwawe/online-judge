@@ -11,7 +11,10 @@ public class CNumberOfPairs {
         n = in.nextInt();
         l = in.nextInt();
         r = in.nextInt();
-        a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         radixSort2(a);
         long res = helper(r) - helper(l - 1);
         out.println(res);

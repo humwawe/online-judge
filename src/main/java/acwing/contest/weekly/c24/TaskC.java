@@ -9,21 +9,33 @@ import java.util.TreeSet;
 public class TaskC {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
-        int[] p = in.nextIntArray(n);
-        int[] a = in.nextIntArray(n);
-        int[] b = in.nextIntArray(n);
+        int[] p = new int[n];
+        for (int i = 0; i < n; i++) {
+            p[i] = in.nextInt();
+        }
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
+        int[] b = new int[n];
+        for (int i = 0; i < n; i++) {
+            b[i] = in.nextInt();
+        }
         Book[] books = new Book[n];
         TreeSet<Integer>[] map = new TreeSet[4];
         for (int i = 0; i < 4; i++) {
             map[i] = new TreeSet<>(Comparator.comparingInt(x -> books[x].p));
         }
         for (int i = 0; i < n; i++) {
-            books[i] = new Book(i, p[i], a[i], b[i]);
-            map[a[i]].add(i);
+            books[i] = new Book(i, p[i], b[i], b[i]);
+            map[b[i]].add(i);
             map[b[i]].add(i);
         }
         int m = in.nextInt();
-        int[] c = in.nextIntArray(m);
+        int[] c = new int[m];
+        for (int i = 0; i < m; i++) {
+            c[i] = in.nextInt();
+        }
 
         for (int i = 0; i < m; i++) {
             int t = c[i];

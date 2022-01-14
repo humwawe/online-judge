@@ -9,7 +9,10 @@ public class TaskC {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
         int k = in.nextInt();
-        long[] a = in.nextLongArray(n);
+        long[] a = new long[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextLong();
+        }
         Arrays.sort(a);
         long[] sum = new long[n + 1];
         for (int i = 0; i < n; i++) {

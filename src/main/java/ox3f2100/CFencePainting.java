@@ -12,9 +12,18 @@ public class CFencePainting {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
         int m = in.nextInt();
-        int[] a = in.nextIntArray(n);
-        int[] b = in.nextIntArray(n);
-        int[] c = in.nextIntArray(m);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
+        int[] b = new int[n];
+        for (int i = 0; i < n; i++) {
+            b[i] = in.nextInt();
+        }
+        int[] c = new int[m];
+        for (int i = 0; i < m; i++) {
+            c[i] = in.nextInt();
+        }
         int last = -1;
         Map<Integer, List<Integer>> need = new HashMap<>();
         for (int i = 0; i < n; i++) {

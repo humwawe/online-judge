@@ -6,7 +6,10 @@ import fast.io.OutputWriter;
 public class AMultiplesOfLength {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
-        int[] a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         if (n == 1) {
             out.println("1 1");
             out.println(0);

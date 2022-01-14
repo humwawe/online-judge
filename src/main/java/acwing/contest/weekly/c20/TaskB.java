@@ -10,7 +10,10 @@ public class TaskB {
         int n = in.nextInt();
         int k = in.nextInt();
         k += in.nextInt();
-        int[] a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>((x, y) -> y - x);
         for (int i = 0; i < n; i++) {
             a[i] -= in.nextInt();

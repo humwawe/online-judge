@@ -15,7 +15,10 @@ public class BDimaAndABadXOR {
         int line = 0;
         int idx = 0;
         for (int i = 0; i < n; i++) {
-            int[] a = in.nextIntArray(m);
+            int[] a = new int[n];
+            for (int j = 0; j < m; j++) {
+                a[j] = in.nextInt();
+            }
             list.add(a[0]);
             if (flag) {
                 continue;

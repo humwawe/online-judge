@@ -16,7 +16,10 @@ public class E2ArrayOptimizationByDeque {
         b = new Integer[n];
         Arrays.fill(t, 0);
         long[][] dp = new long[n + 1][2];
-        int[] a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         for (int i = 0; i < n; i++) {
             b[i] = a[i];
         }

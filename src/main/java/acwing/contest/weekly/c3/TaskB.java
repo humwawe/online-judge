@@ -7,7 +7,10 @@ public class TaskB {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
         int k = in.nextInt();
-        int[] a = in.nextIntArray(n);
+        long[] a = new long[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextLong();
+        }
         int inf = (int) 1e8;
         int res = inf;
         for (int num = 1; num <= 100; num++) {

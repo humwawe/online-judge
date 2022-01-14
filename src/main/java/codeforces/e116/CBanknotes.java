@@ -7,7 +7,10 @@ public class CBanknotes {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int n = in.nextInt();
         int k = in.nextInt() + 1;
-        int[] a = in.nextIntArray(n);
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i < n; i++) {
             int t = a[i] - a[i - 1];
