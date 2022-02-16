@@ -10,7 +10,6 @@ public class DBigBrush {
     int[][] a;
     boolean[][] vis;
 
-    // todo
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         n = in.nextInt();
         m = in.nextInt();
