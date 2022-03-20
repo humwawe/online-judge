@@ -24,7 +24,7 @@ public class DArrayDifferentiation {
       }
       set.add(sum);
     }
-    if (set.size() == 1 << n) {1552D
+    if (set.size() == 1 << n) {
       out.println("NO");
     } else {
       out.println("YES");
