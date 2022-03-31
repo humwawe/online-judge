@@ -24,6 +24,7 @@ public class AShortProgram {
         b ^= x;
       }
     }
+    out.println(3);
     out.println("| " + (a & b));
     out.println("& " + (a | b));
     out.println("^ " + (a & (1023 ^ b)));
