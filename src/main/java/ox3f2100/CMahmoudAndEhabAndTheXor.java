@@ -1,4 +1,4 @@
-package codeforces.e127;
+package ox3f2100;
 
 import fast.io.InputReader;
 import fast.io.OutputWriter;
@@ -33,6 +33,5 @@ public class CMahmoudAndEhabAndTheXor {
     } else {
       out.println(0, sum ^ x ^ pw1, pw1);
     }
-
   }
 }

@@ -1,4 +1,4 @@
-package codeforces.e127;
+package ox3f2100;
 
 import fast.io.InputReader;
 import fast.io.OutputWriter;
@@ -14,6 +14,5 @@ public class BALeapfrogInTheArray {
       }
       out.println((x + 1) / 2);
     }
-
   }
 }
