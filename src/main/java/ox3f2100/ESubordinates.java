@@ -11,10 +11,13 @@ public class ESubordinates {
     int res = 0;
     for (int i = 0; i < n; i++) {
       int x = in.nextInt();
-      if (i == s - 1 && x != 0) {
-        res++;
+      if (i == s - 1) {
+        if (x != 0) {
+          res++;
+        }
+      } else {
+        cnt[x]++;
       }
-      cnt[x]++;
     }
     int sum = 1;
     for (int i = 1; sum < n; i++) {
