@@ -7,3 +7,4 @@ target
 *.txt
 *.properties
 output
+out
