@@ -1,4 +1,4 @@
-package codeforces.cgr21;
+package codeforces.g21;
 
 import fast.io.InputReader;
 import fast.io.OutputWriter;

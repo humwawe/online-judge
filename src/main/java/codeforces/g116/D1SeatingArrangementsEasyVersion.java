@@ -1,21 +1,24 @@
-package codeforces.cgr19;
+package codeforces.g116;
 
 import fast.io.InputReader;
 import fast.io.OutputWriter;
 
-public class ASortingParts {
+public class D1SeatingArrangementsEasyVersion {
   public void solve(int testNumber, InputReader in, OutputWriter out) {
     int n = in.nextInt();
+    int m = in.nextInt();
     int[] a = new int[n];
     for (int i = 0; i < n; i++) {
       a[i] = in.nextInt();
     }
-    for (int i = 0; i < n - 1; i++) {
-      if (a[i] > a[i + 1]) {
-        out.println("YES");
-        return;
+    int res = 0;
+    for (int i = 0; i < m; i++) {
+      for (int j = i - 1; j >= 0; j--) {
+        if (a[j] < a[i]) {
+          res++;
+        }
       }
     }
-    out.println("NO");
+    out.println(res);
   }
 }

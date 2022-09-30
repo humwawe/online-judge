@@ -1,4 +1,4 @@
-package codeforces.cgr19;
+package codeforces.g19;
 
 import fast.io.InputReader;
 import fast.io.OutputWriter;

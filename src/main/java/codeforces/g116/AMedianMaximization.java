@@ -1,4 +1,4 @@
-package codeforces.cgr116;
+package codeforces.g116;
 
 import fast.io.InputReader;
 import fast.io.OutputWriter;
