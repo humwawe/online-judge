@@ -2,6 +2,7 @@ package acwing.contest.weekly.c31;
 
 import fast.io.InputReader;
 import fast.io.OutputWriter;
+import util.BitSet;
 
 public class TaskC {
   int n, m;

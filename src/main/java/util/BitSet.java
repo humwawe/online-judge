@@ -1,4 +1,4 @@
-package acwing.contest.weekly.c31;
+package util;
 
 import java.io.Serializable;
 import java.util.Arrays;
