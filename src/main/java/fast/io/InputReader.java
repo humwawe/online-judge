@@ -79,6 +79,14 @@ public class InputReader {
     return res * sgn;
   }
 
+  public int[] nextInt(int n) {
+    int[] a = new int[n];
+    for (int i = 0; i < n; i++) {
+      a[i] = nextInt();
+    }
+    return a;
+  }
+
   public long nextLong() {
     int c = read();
     while (isSpaceChar(c)) {
@@ -99,6 +107,14 @@ public class InputReader {
       c = read();
     } while (!isSpaceChar(c));
     return res * sgn;
+  }
+
+  public long[] nextLong(int n) {
+    long[] a = new long[n];
+    for (int i = 0; i < n; i++) {
+      a[i] = nextLong();
+    }
+    return a;
   }
 
   public String nextString() {
