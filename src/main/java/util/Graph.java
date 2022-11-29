@@ -7,10 +7,10 @@ import java.util.Arrays;
  */
 public class Graph {
   int N, M;
-  int[] h;
-  int[] e;
-  int[] ne;
-  int[] w;
+  public int[] h;
+  public int[] e;
+  public int[] ne;
+  public int[] w;
   int idx, n, m;
   // 是否有方向，默认无向边
   boolean flag;
