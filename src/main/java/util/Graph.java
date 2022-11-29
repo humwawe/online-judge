@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author hum
  */
 public class Graph {
-  int N, M;
+  public int N, M;
   public int[] h;
   public int[] e;
   public int[] ne;
