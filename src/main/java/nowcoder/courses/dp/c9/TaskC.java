@@ -12,48 +12,31 @@ public class TaskC {
       a[i] = in.nextInt();
     }
 
-    int[][] dp1 = new int[n + 1][m + 1];
-    int[][] dp2 = new int[n + 2][m + 2];
+    int[] dp = new int[m + 1];
 
-    dp1[0][0] = 1;
-    for (int i = 1; i <= n; i++) {
-      for (int j = 0; j <= m; j++) {
-        dp1[i][j] += dp1[i - 1][j];
-        if (j - a[i] >= 0) {
-          dp1[i][j] += dp1[i - 1][j - a[i]];
-        }
-        dp1[i][j] %= 10;
-      }
-    }
-
-    dp2[n + 1][0] = 1;
-    for (int i = n; i > 0; i--) {
-      for (int j = 0; j <= m; j++) {
-        dp2[i][j] += dp2[i + 1][j];
-        if (j - a[i] >= 0) {
-          dp2[i][j] += dp2[i + 1][j - a[i]];
-        }
-        dp2[i][j] %= 10;
+    dp[0] = 1;
+    for (int i = 1; i <= n; ++i) {
+      for (int j = m; j >= a[i]; --j) {
+        dp[j] += dp[j - a[i]];
+        dp[j] %= 10;
       }
     }
 
 
-    int[][] g = new int[n + 1][m + 1];
+    int[] g = new int[m + 1];
     for (int i = 1; i <= n; i++) {
       for (int j = 0; j <= m; j++) {
-        for (int l = 0; l <= j; l++) {
-          int r = j - l;
-          g[i][j] += dp1[i - 1][l] * dp2[i + 1][r];
-          g[i][j] %= 10;
+        if (j < a[i]) {
+          g[j] = dp[j];
+        } else {
+          g[j] = (dp[j] - g[j - a[i]] + 10) % 10;
         }
-
       }
-    }
-    for (int i = 1; i <= n; i++) {
       for (int j = 1; j <= m; j++) {
-        out.print(g[i][j]);
+        out.print(g[j]);
       }
       out.println();
     }
+
   }
 }
