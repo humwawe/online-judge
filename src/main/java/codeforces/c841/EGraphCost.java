@@ -5,7 +5,7 @@ import fast.io.OutputWriter;
 
 public class EGraphCost {
   int N = (int) (1e6 + 5);
-  int[] sum = new int[N + 1];
+  long[] sum = new long[N + 1];
 
   {
     int[] eulers = getEulers(N);
@@ -16,29 +16,22 @@ public class EGraphCost {
 
   public void solve(int testNumber, InputReader in, OutputWriter out) {
     int n = in.nextInt();
-    int m = in.nextInt();
-    int[] cnt = new int[n];
-    long cs = 0;
+    long m = in.nextLong();
+    long[] cnt = new long[n];
     for (int i = 1; i < n; i++) {
       int g = i + 1;
       cnt[i] = sum[n / g];
       if (cnt[i] < i) {
         cnt[i] = 0;
       }
-      cs += cnt[i];
     }
-    if (cs < m) {
-      out.println(-1);
-      return;
-    }
-
 
     long res = 0;
-    for (int i = n - 1; i >= 0; i--) {
+    for (int i = n - 1; i > 0; i--) {
 
       if (cnt[i] >= i) {
-        int c = Math.min(cnt[i], m) / i;
-        res += (i + 1) * c;
+        long c = Math.min(cnt[i], m) / i;
+        res += (long) (i + 1) * c;
         m -= i * c;
         cnt[i] -= i * c;
       }
@@ -48,7 +41,7 @@ public class EGraphCost {
       }
 
     }
-    out.println(res);
+    out.println(-1);
 
   }
 
