@@ -3,57 +3,57 @@ package nowcoder.courses.ab.c1;
 import fast.io.InputReader;
 import fast.io.OutputWriter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TaskB {
+  Map<String, Boolean> memo = new HashMap<>();
+
   public void solve(int testNumber, InputReader in, OutputWriter out) {
-    int n = in.nextInt();
     String s = in.nextString();
-    int i = 0;
-    int j = n - 1;
-    int b = 0;
-
-    while (i < j) {
-      if (s.charAt(i) != s.charAt(j)) {
-        b++;
-      }
-      i++;
-      j--;
-    }
-
-
-    int cnt0 = 0;
-    for (int k = 0; k < n; k++) {
-      if (s.charAt(k) == '0') {
-        cnt0++;
-      }
-    }
-
-    if (b != 0) {
-      if (cnt0 == 0 || (cnt0 == 2 && n % 2 == 1 && s.charAt(n / 2) == '0')) {
-        out.println("DRAW");
-      } else {
-        out.println("ALICE");
-      }
+    if (s.charAt(0) == '0') {
+      out.println("Yes");
       return;
     }
-
-    if (n % 2 == 1 && s.charAt(n / 2) == '0' && cnt0 > 1) {
-      out.println("ALICE");
-      return;
+    if (dfs(s)) {
+      out.println("Yes");
+    } else {
+      out.println("No");
     }
-    out.println("BOB");
-    //    cnt0 -= b;
-    //    int a = 0;
-    //
-    //    a = cnt0 / 2 + 1;
-    //    b += cnt0 - cnt0 / 2 - 1;
-    //
-    //
-    //    if (a > b) {
-    //      out.println("BOB");
-    //    } else if (a < b) {
-    //      out.println("ALICE");
-    //    } else {
-    //      out.println("DRAW");
-    //    }
+
+  }
+
+  private boolean dfs(String s) {
+    if (s.length() == 0) {
+      return false;
+    }
+    if (memo.containsKey(s)) {
+      return memo.get(s);
+    }
+    char[] chars = s.toCharArray();
+    int n = s.length();
+    for (int i = 0; i < n; i++) {
+      char c = s.charAt(i);
+      if (c == '0') {
+        String ns = s.substring(0, i);
+        if (!dfs(ns)) {
+          memo.put(s, true);
+          return true;
+        }
+      } else if (c > '0') {
+        for (char j = '0'; j < c; j++) {
+          chars[i] = j;
+          String ns = new String(chars);
+          if (!dfs(ns)) {
+            memo.put(s, true);
+            return true;
+          }
+          chars[i] = c;
+        }
+      }
+    }
+    memo.put(s, false);
+    return false;
+
   }
 }
