@@ -1,4 +1,4 @@
-package leetcode.cc94;
+package leetcode.b94;
 
 /**
  * @author hum
