@@ -11,7 +11,7 @@ public class TaskB {
   public void solve(int testNumber, InputReader in, OutputWriter out) {
     int n = in.nextInt();
     int N = (int) 1e6 + 5;
-    int[] siev = MathMeth.sieveLowestPrime(N);
+    int[] siev = MathMeth.sieveEratosthenes(N);
     Set<Long> set = new HashSet<>();
     for (int i : siev) {
       set.add((long) i * i);
