@@ -51,7 +51,6 @@ public class C4 {
           queue.add(j);
         } else if ((i ^ 1) != fa[u]) {
           ans = Math.min(ans, dis[j] + dis[u] + 1);
-          return;
         }
       }
     }
