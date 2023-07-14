@@ -15,6 +15,9 @@ public class C4 {
     int[] tmp = new int[n + 1];
     for (int i = 0; i < n - k + 1; i++) {
       int x = diff[i] - tmp[i];
+      if (x < 0) {
+        return false;
+      }
       tmp[i] += x;
       tmp[i + k] -= x;
     }
