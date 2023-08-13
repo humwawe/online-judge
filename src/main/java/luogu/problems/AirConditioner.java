@@ -1,4 +1,4 @@
-package luoguo.problems;
+package luogu.problems;
 
 import fast.io.InputReader;
 import fast.io.OutputWriter;
