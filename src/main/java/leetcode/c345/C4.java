@@ -1,4 +1,4 @@
-package leetcode.C345;
+package leetcode.c345;
 
 import java.util.HashSet;
 import java.util.Set;
