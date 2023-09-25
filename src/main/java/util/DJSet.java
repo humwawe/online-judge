@@ -69,6 +69,11 @@ public class DJSet {
     return ct;
   }
 
+  // x 所在集合大小
+  public int size(int x) {
+    return -upper[root(x)];
+  }
+
   public int[][] toBucket() {
     int n = upper.length;
     int[][] ret = new int[n][];
