@@ -6,10 +6,6 @@ import java.util.Arrays;
  * @author hum
  */
 public class C4 {
-  public static void main(String[] args) {
-    C4 c4 = new C4();
-    System.out.println(c4.countPaths(4, new int[][]{{1, 2}, {4, 1}, {3, 4}}));
-  }
 
   public long countPaths(int n, int[][] edges) {
     int[] primes = new int[n + 1];
